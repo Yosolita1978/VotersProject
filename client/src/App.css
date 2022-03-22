@@ -1,38 +1,62 @@
-.App {
+.App{
   text-align: center;
+  font-size: 1.5em;
+  margin-top:0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button{
+  width:150px;
+  font-size:20px;
+	cursor:pointer;
+  height:50px;
+  background:red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul{
+  list-style: none;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+ 
+input[type=text], select{
+  width:fit-content;
+  padding: 12px 15px;
+  margin: 10px 3px;
+  border: none;	
+  border-bottom:1px solid tomato;
+ }
+ 
+.headingstyle  {
+  text-align:center;
+ }
+ 
+input[type=submit] {
+  padding: 12px 15px;
+  margin: 10px 3px;
+  font-size:2.5em;
+ }
+ 
+input[type=submit]:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
+ 
+input[type=text]:focus, input[type=email]:focus, input[type=date]:focus, select:focus { 
+ background: lightblue;
+ } 
+ 
+div {
+  background-color: #90acd3;
+  font-family:Helvetica;
+  padding: 10px;
+  border: 1px solid black;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+ }
+ 
+input[type=submit]{
+  color:white;
+  cursor:pointer;
+  max-width:140px;
+  background:black;
+  margin:0 0 5px;
+  padding:10px;
+  font-size:15px;
+ }

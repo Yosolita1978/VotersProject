@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 //create the get request
-app.get('/api/voters', cors(), async (req, res) => {
+app.get('/voters', cors(), async (req, res) => {
     // const VOTERS = [
 
     //     { id: 1, commonname: 'Elefante', scientificname: 'Latinus', numbertinthewild: 200  },
