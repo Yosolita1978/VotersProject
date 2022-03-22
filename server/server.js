@@ -17,8 +17,7 @@ app.get('/', (req, res) => {
 //create the get request
 app.get('/voters', cors(), async (req, res) => {
     // const VOTERS = [
-
-    //     { id: 1, commonname: 'Elefante', scientificname: 'Latinus', numbertinthewild: 200  },
+    //{ id: 1, firstname: 'Becca', lastname: 'Lee', email: 'becca@gmail.com', affiliation: 'republican'},
     // // ];
     // res.json(VOTERS);
     try{
@@ -30,16 +29,16 @@ app.get('/voters', cors(), async (req, res) => {
 });
 
 //create the POST request
-// app.post('/api/students', cors(), async (req, res) => {
-//     const newUser = { firstname: req.body.firstname, lastname: req.body.lastname }
-//     console.log([newUser.firstname, newUser.lastname]);
-//     const result = await db.query(
-//         'INSERT INTO students(firstname, lastname) VALUES($1, $2) RETURNING *',
-//         [newUser.firstname, newUser.lastname]
-//     );
-//     console.log(result.rows[0]);
-//     res.json(result.rows[0]);
-// });
+app.post('/voters', cors(), async (req, res) => {
+    const newPerson = { firstname: req.body.firstname, lastname: req.body.lastname, email: req.body.email, affiliation: req.body.affiliation }
+    //console.log("this is the post", [newPerson.firstname, newPerson.lastname, newPerson.email, newPerson.affiliation]);
+    const result = await db.query(
+        'INSERT INTO voters(lastname, firstname, email, affiliation) VALUES($1, $2, $3, $4) RETURNING *',
+        [newPerson.lastname, newPerson.firstname, newPerson.email, newPerson.affiliation ]
+    );
+    console.log(result.rows[0]);
+    res.json(result.rows[0]);
+});
 
 // console.log that your server is up and running
 app.listen(PORT, () => {

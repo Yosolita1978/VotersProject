@@ -33,24 +33,30 @@ const Form = (props) => {
     }
 
     //A function to handle the post request
-    // const postStudent = (newStudent) => {
-    //     return fetch('http://localhost:5000/api/students', {
-    //     method: 'POST',
-    //     headers: {'Content-Type': 'application/json'}, 
-    //     body: JSON.stringify(newStudent)
-    //   }).then((response) => {
-    //       return response.json()
-    //   }).then((data) => {
-    //     console.log("From the post ", data);
-    //     props.addStudent(data);
-
-    // });
-    // }
+    const postPerson = (newPerson) => {
+        return fetch('http://localhost:5000/voters', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(newPerson)
+      }).then((response) => {
+          return response.json()
+      }).then((data) => {
+        console.log("From the post ", data);
+    });
+    }
 
     const handleSubmit = (e) => {
+        let emptyPerson= {
+            firstname: "",
+            lastname: "",
+            email: "",
+            affiliation: ""
+        }
         e.preventDefault();
         setPerson(person);
+        postPerson(person);
         props.addPerson(person);
+        setPerson(emptyPerson);
 
     };
 
@@ -86,13 +92,13 @@ const Form = (props) => {
                     onChange={handleEmailChange}
                 />
 
-                <label>Affiliation</label>
+                <label>Affiliation </label>
                 <input
                     type="text"
                     id="add-user-affiliation"
                     placeholder="Political affiliation"
                     required
-                    value={person.a}
+                    value={person.affiliation}
                     onChange={handleAffiliationChange}
                 />
             </fieldset>
